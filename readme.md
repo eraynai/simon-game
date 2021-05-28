@@ -17,6 +17,6 @@ As a user I want the game to have simple and clear instructions so I can easily 
 [Link to Figma Wireframe](https://www.figma.com/proto/M4ZNCjbKyDJBANpsFDYBn7/Simon-Wireframe?node-id=1%3A2&scaling=min-zoom&page-id=0%3A1)
 
 ## Coding Flow Chart
-[Link to hi-res version of flow chart on Miro](https://miro.com/app/board/o9J_lBrbB_Q=/)
+To see a hi-res version of the image, double click on it or click on [the flow chart in Miro](https://miro.com/app/board/o9J_lBrbB_Q=/)
 
 ![](process-images/simon-coding-flow.png)
