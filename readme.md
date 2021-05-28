@@ -4,13 +4,13 @@ The game I chose for my first project is Simon.  I was inspired to make this gam
 
 ## User Stories
 
-As a user I want the game to personal to me
+As a user I want the game to know my name when I provide it
 
 As a user I want to see my score
 
 As a user I want the game to be easy to start as well as reset
 
-As a user I want the game to be simple to understand about how to play
+As a user I want the game to have simple and clear instructions so I can easily understand how to play
 
 ## Wireframe
 
