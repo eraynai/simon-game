@@ -1,4 +1,4 @@
-# Simon Game
+# Simon - Browser Game
 
 The game I chose for my first project is Simon.  I was inspired to make this game as I really liked to play this game when I was a kid.  I also thing it will present a good challenge for me in my coding journey.
 
