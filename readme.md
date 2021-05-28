@@ -1,3 +1,3 @@
 # Simon Game
 
-![](process-images/simon-coding-flow.jpg)
+![](process-images/simon-coding-flow.png)
