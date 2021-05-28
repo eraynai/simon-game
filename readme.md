@@ -12,6 +12,10 @@ As a user I want the game to be easy to start as well as reset
 
 As a user I want the game to have simple and clear instructions so I can easily understand how to play
 
+## Rules to Simon
+
+[Link to document](https://docs.google.com/document/d/1PZ9YwoeWGahjrJURP2c_sXJhdLENRYsss8-CMEqDNDU/edit?usp=sharing)
+
 ## Wireframe
 
 [Link to Figma Wireframe](https://www.figma.com/proto/M4ZNCjbKyDJBANpsFDYBn7/Simon-Wireframe?node-id=1%3A2&scaling=min-zoom&page-id=0%3A1)
