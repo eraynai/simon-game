@@ -23,4 +23,4 @@ As a user I want the game to have simple and clear instructions so I can easily 
 ## Coding Flow Chart
 To see a hi-res version of the image, click on it or click on the flow chart in [Miro](https://miro.com/app/board/o9J_lBrbB_Q=/)
 
-![](process-images/simon-coding-flow.png)
+![](process-images/simon-flow-chart.jpg) 
