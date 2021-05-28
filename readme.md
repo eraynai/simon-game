@@ -8,7 +8,9 @@ As a user I want the game to personal to me
 
 As a user I want to see my score
 
-As a user I want the game to be easy to start and easy to reset
+As a user I want the game to be easy to start as well as reset
+
+As a user I want the game to be simple to understand about how to play
 
 ## Wireframe
 
