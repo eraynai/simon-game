@@ -23,4 +23,27 @@ As a user I want the game to have simple and clear instructions so I can easily 
 ## Coding Flow Chart
 To see a hi-res version of the image, click on it or click on the flow chart in [Miro](https://miro.com/app/board/o9J_lBrbB_Q=/)
 
-![](process-images/simon-flow-chart.jpg) 
+![](process-images/simon-flow-chart.jpg)
+
+## Project Plan
+
+### Deadline Monday May 31st, 2021
+
+MVP 1.0 - Get two buttons working and should be able to be clicked on by the user.  Also, a win/loss condition must appear to the user.
+
+
+### Deadline Tuesday June 1st, 2021
+
+MVP 2.0 - Get game working with all 4 buttons
+
+### Deadline Wednesday June 2nd, 2021
+
+MVP 3.0 - UI upgrades, sound, animation integration 
+
+### Deadline Thursday June 3rd, 2021
+
+MVP 4.0 - Fix any bugs, dry up code, add difficulty changer to the game and any other interesting features that I decide to add
+
+## Delivery Friday June 4th, 2021
+
+MVP 5.0 - Present final Simon Game
