@@ -1,23 +1,20 @@
-* {
+*, :before, :after {
     box-sizing: border-box;
 }
 
+body {
+    margin: 0;
+    
+}
+
 .container {
-    width: 40%;
-    margin: auto;
-}
-
-.square {
-    width: 100px;
-    height: 100px;
-    border: 1px solid black;
-    cursor: pointer;
-    font-size: 100px;
-    text-align: center;
-}
-
-.row {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
 }
 
-
+#one {
+    margin-bottom: 1rem;
+}
