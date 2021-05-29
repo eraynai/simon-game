@@ -1,0 +1,23 @@
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    width: 40%;
+    margin: auto;
+}
+
+.square {
+    width: 100px;
+    height: 100px;
+    border: 1px solid black;
+    cursor: pointer;
+    font-size: 100px;
+    text-align: center;
+}
+
+.row {
+    display: flex;
+}
+
+
