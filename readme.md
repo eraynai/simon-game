@@ -44,6 +44,6 @@ MVP 3.0 - UI upgrades, sound, animation integration
 
 MVP 4.0 - Fix any bugs, dry up code, add difficulty changer to the game and any other interesting features that I decide to add
 
-## Delivery Friday June 4th, 2021
+### Delivery Friday June 4th, 2021
 
 MVP 5.0 - Present final Simon Game
