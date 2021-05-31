@@ -47,3 +47,7 @@ MVP 4.0 - Fix any bugs, dry up code, add difficulty changer to the game and any 
 ### Delivery Friday June 4th, 2021
 
 MVP 5.0 - Present final Simon Game
+
+### Ideas
+
+The idea for the algorithm of the game loop is that every time the player clicks on the button we grab the value of button and push that value inside an array.  Then we do a comparison between the pattern array and the new array.

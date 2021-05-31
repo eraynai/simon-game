@@ -4,10 +4,17 @@
 
 body {
     margin: 0;
-    
+    background-color: grey;
 }
 
-.container {
+
+.score {
+    text-align: center;    
+    padding: 2rem;
+    color: #ffffff;
+}
+
+.button-container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -15,6 +22,33 @@ body {
     flex-direction: column;
 }
 
-#one {
+button {
+    border: none;
+    padding: 1.2rem;
+}
+#start {
     margin-bottom: 1rem;
+    border-radius: 1.5rem;
+}
+
+#green {
+    margin-bottom: 1rem;
+    background-color: green;
+}
+
+#yellow {
+    background-color: yellow;
+}
+
+.addGreenBorder {
+    border: 3px greenyellow solid;
+}
+
+.addYellowBorder {
+    border: 3px orange solid;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
 }
