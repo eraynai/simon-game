@@ -5,7 +5,7 @@ const gamePatternOne = ["green", "green", "yellow", "green", "yellow", "green"];
 
 /*--APP'S STATE VARIABLES--*/
 
-/* let score = 0; */
+let score = 0;
 
 let userPattern = [];
 let turn = 0;
