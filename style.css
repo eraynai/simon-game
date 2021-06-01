@@ -68,8 +68,8 @@ button {
 }
 
 h1 {
-    display: flex;
-    justify-content: center;
+   display: flex;
+   justify-content: center;
 }
 
 .green-sec{
@@ -78,11 +78,15 @@ h1 {
     
 }
 .green-ani{
-animation: green-button 2s linear .3s infinite;
+animation: green-button .4s linear .3s;
 }
 
 .blue-sec {
     fill: #0A7EC7;
+}
+
+.blue-ani{
+    animation: blue-button .4s linear .3s;
 }
 
 .yellow-sec {
@@ -90,11 +94,15 @@ animation: green-button 2s linear .3s infinite;
 }
 
 .yellow-ani{
-    animation: yellow-button 1s linear 0.2s infinite;
+    animation: yellow-button .4s linear .3s;
 }
 
 .red-sec{
     fill: #C7130A;
+}
+
+.red-ani{
+    animation: red-button .4s linear .3s; 
 }
 
 .example{
@@ -102,18 +110,36 @@ animation: green-button 2s linear .3s infinite;
 }
 
 @keyframes green-button {
-    from {fill: #0BC864; ;}
+    from {fill: #0BC864;}
     to {fill: #FFFFFF;}
   }
 
   @keyframes yellow-button {
-    from {fill: #FFE91F; ;}
-    to {fill: yellow;}
+    from {fill: #FFE91F;}
+    to {fill: #FFFFFF;}
   }
+
+  @keyframes blue-button {
+    from {fill: #0A7EC7;}
+    to {fill: #FFFFFF;} 
+  }
+
+  @keyframes red-button {
+    from {fill: #C7130A;}
+    to {fill: #FFFFFF;} 
+  }
+  
+.svg-container {
+    position: relative;
+}
 
 .start-button {
     position: absolute;
     z-index: 1;
     top: 490px;
     left: 415px;
+}
+
+.win-loss-message{
+
 }

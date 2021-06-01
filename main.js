@@ -25,6 +25,8 @@ let playerMessageEl = document.getElementById('playerMessage');
 startEl.addEventListener("click", buttonIsClicked);
 greenButtonEl.addEventListener("click", buttonIsClicked);
 yellowButtonEl.addEventListener("click", buttonIsClicked);
+blueButtonEl.addEventListener("click", buttonIsClicked);
+redButtonEl.addEventListener("click", buttonIsClicked); 
 
 /*--FUNCTIONS--*/
 
@@ -58,14 +60,18 @@ function buttonIsClicked(e) {
 
 function patternDriver(){
     if(turn === 0){
-        addGreenBorder();
+        
         return lightFirstPattern();
     }
     if(turn === 1) {
+        console.log('are you running?');
         return lightSecondPattern();
     }
     if (turn === 3){
      return lightThirdPattern();
+    }
+    if (turn === 6){
+        return lightFourthPattern();
     }   
 }
 
@@ -96,25 +102,37 @@ function checkWinner(){
 } */
 
 function lightFirstPattern(){
-    /* setInterval(addGreenBorder, 300); */
-    setTimeout(removeGreenBorder, 2000);
+    setTimeout(addGreenBorder, 0)
+    setTimeout(removeGreenBorder, 1000);
     
 }
 
 function lightSecondPattern(){
-    setTimeout(addGreenBorder, 1000);
-    setTimeout(removeGreenBorder, 2600);
-    setTimeout(addYellowBorder, 1700);
-    setTimeout(removeYellowBorder, 3300);
+    setTimeout(addGreenBorder, 0);
+    setTimeout(removeGreenBorder, 1000);
+    setTimeout(addYellowBorder, 1000);
+    setTimeout(removeYellowBorder, 2000);
 }
 
 function lightThirdPattern(){
-    setTimeout(addGreenBorder, 2400);
-    setTimeout(removeGreenBorder, 3000);
-    setTimeout(addYellowBorder, 3100);
-    setTimeout(removeYellowBorder, 3700);
-    setTimeout(addBlueBorder, 3800);
-    setTimeout(removeBlueBorder, 4400);
+    setTimeout(addGreenBorder, 0);
+    setTimeout(removeGreenBorder, 1000);
+    setTimeout(addYellowBorder, 1000);
+    setTimeout(removeYellowBorder, 2000);
+    setTimeout(addBlueBorder, 2000);
+    setTimeout(removeBlueBorder, 3000);
+}
+
+function lightFourthPattern(){
+    setTimeout(addGreenBorder, 0);
+    setTimeout(removeGreenBorder, 1000);
+    setTimeout(addYellowBorder, 1000);
+    setTimeout(removeYellowBorder, 2000);
+    setTimeout(addBlueBorder, 2000);
+    setTimeout(removeBlueBorder, 3000);
+    setTimeout(addRedBorder, 3000);
+    setTimeout(removeRedBorder, 4000);
+
 }
 
 
@@ -136,11 +154,11 @@ function addYellowBorder(){
 }
 
 function addBlueBorder(){
-    blueButtonEl.classList.add("addBlueBorder");
+    blueButtonEl.classList.add("blue-ani");
 }
 
 function addRedBorder(){
-    redButtonEl.classList.add("addRedBorder");
+    redButtonEl.classList.add("red-ani");
 }
 
  function removeGreenBorder(){
@@ -152,11 +170,11 @@ function removeYellowBorder(){
 }
 
 function removeBlueBorder(){
-    blueButtonEl.classList.remove("addBlueBorder");
+    blueButtonEl.classList.remove("blue-ani");
 }
 
 function removeRedBorder(){
-    redButtonEl.classList.remove("addRedBorder");
+    redButtonEl.classList.remove("red-ani");
 }
 
 function failMessage(){
