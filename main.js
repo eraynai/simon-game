@@ -52,6 +52,8 @@ function buttonIsClicked(e) {
         }
         if(checkPattern()){
             turn++;
+            score++;
+            checkScore();
             patternDriver();
         }else{
             failMessage();
@@ -73,6 +75,7 @@ function patternDriver(){
         return lightFourthPattern();
     }   
 }
+
 
 
 function checkWinner(){ 
@@ -116,7 +119,8 @@ function lightFourthPattern(){
 }
 
 function render(){
-    checkWinner(); 
+    checkWinner();
+   
 }
 
 setInterval(render, 300);
@@ -158,10 +162,16 @@ function failMessage(){
     playerMessageEl.textContent = "You failed, do you want to try again?";
 }
 
+function checkScore(){
+    scoreEl.innerHTML = score;
+}
+
 function init(){
     userPattern = [];
     turn = 0;
     setTimeout(addEventListeners, 100);
     playerMessageEl.textContent = "";
+    scoreEl.textContent = "0";
 }
+
 
