@@ -23,14 +23,16 @@ let playerMessageEl = document.getElementById('playerMessage');
 /*--EVENT LISTENERS--*/
 
 startEl.addEventListener("click", buttonIsClicked);
+
+
+/*--FUNCTIONS--*/
+
 function addEventListeners(){
     greenButtonEl.addEventListener("click", buttonIsClicked);
     yellowButtonEl.addEventListener("click", buttonIsClicked);
     blueButtonEl.addEventListener("click", buttonIsClicked);
     redButtonEl.addEventListener("click", buttonIsClicked); 
 }
-
-/*--FUNCTIONS--*/
 
 function buttonIsClicked(e) {
     if(e.target.id === startEl.id){
@@ -50,9 +52,7 @@ function buttonIsClicked(e) {
         }
         if(checkPattern()){
             turn++;
-            console.log(turn);
             patternDriver();
-           
         }else{
             failMessage();
         } 
@@ -75,14 +75,11 @@ function patternDriver(){
 }
 
 
-
 function checkWinner(){ 
     if(turn >= gamePattern.length){
         playerMessageEl.textContent = "Player has beaten Simon!";
     }
 }
-
-
 
 function lightFirstPattern(){
     setTimeout(addGreenBorder, 0)
@@ -117,9 +114,6 @@ function lightFourthPattern(){
     setTimeout(removeRedBorder, 4000);
 
 }
-
-
-
 
 function render(){
     checkWinner(); 
