@@ -4,7 +4,7 @@
 
 body {
     margin: 0;
-    background-color: grey;
+background-color: grey;
 }
 
 
@@ -38,6 +38,17 @@ button {
 
 #yellow {
     background-color: yellow;
+    margin-bottom: 1rem;
+}
+
+#blue {
+    background-color: blue;
+    margin-bottom: 1rem;
+}
+
+#red {
+    background-color: red;
+
 }
 
 .addGreenBorder {
@@ -48,7 +59,61 @@ button {
     border: 3px orange solid;
 }
 
+.addBlueBorder {
+    border: 3px lightblue solid;
+}
+
+.addRedBorder {
+    border: 3px lightcoral solid;
+}
+
 h1 {
     display: flex;
     justify-content: center;
+}
+
+.green-sec{
+    fill: #0BC864;
+    
+    
+}
+.green-ani{
+animation: green-button 2s linear .3s infinite;
+}
+
+.blue-sec {
+    fill: #0A7EC7;
+}
+
+.yellow-sec {
+    fill: #FFE91F;
+}
+
+.yellow-ani{
+    animation: yellow-button 1s linear 0.2s infinite;
+}
+
+.red-sec{
+    fill: #C7130A;
+}
+
+.example{
+    width: 900px;
+}
+
+@keyframes green-button {
+    from {fill: #0BC864; ;}
+    to {fill: #FFFFFF;}
+  }
+
+  @keyframes yellow-button {
+    from {fill: #FFE91F; ;}
+    to {fill: yellow;}
+  }
+
+.start-button {
+    position: absolute;
+    z-index: 1;
+    top: 490px;
+    left: 415px;
 }
