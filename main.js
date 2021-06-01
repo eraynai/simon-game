@@ -23,16 +23,19 @@ let playerMessageEl = document.getElementById('playerMessage');
 /*--EVENT LISTENERS--*/
 
 startEl.addEventListener("click", buttonIsClicked);
-greenButtonEl.addEventListener("click", buttonIsClicked);
-yellowButtonEl.addEventListener("click", buttonIsClicked);
-blueButtonEl.addEventListener("click", buttonIsClicked);
-redButtonEl.addEventListener("click", buttonIsClicked); 
+function addEventListeners(){
+    greenButtonEl.addEventListener("click", buttonIsClicked);
+    yellowButtonEl.addEventListener("click", buttonIsClicked);
+    blueButtonEl.addEventListener("click", buttonIsClicked);
+    redButtonEl.addEventListener("click", buttonIsClicked); 
+}
 
 /*--FUNCTIONS--*/
 
 function buttonIsClicked(e) {
     if(e.target.id === startEl.id){
-        console.log("are you starting");
+        console.log("if you see this you are starting starting");
+        init(); 
         patternDriver();
     }else{
         userPattern.push(e.target.id);
@@ -40,7 +43,6 @@ function buttonIsClicked(e) {
         function checkPattern(){
             for(let i = 0; i < userPattern.length; i++){
                 if(userPattern[i] !== gamePattern[i]){
-                console.log('are you failing here?');
                 return false;
                 }    
             }
@@ -53,18 +55,15 @@ function buttonIsClicked(e) {
            
         }else{
             failMessage();
-            resetGame();
         } 
     }
 }      
 
 function patternDriver(){
     if(turn === 0){
-        
         return lightFirstPattern();
     }
     if(turn === 1) {
-        console.log('are you running?');
         return lightSecondPattern();
     }
     if (turn === 3){
@@ -83,23 +82,7 @@ function checkWinner(){
     }
 }
 
-/* function patternDriver(){
-    for(let color of gamePattern){
-        if(color === "green"){
-            setTimeout(addGreenBorder, 300);
-            setTimeout(removeGreenBorder, 600);
-        }else if(color === "yellow"){
-            setTimeout(addYellowBorder, 500);
-            setTimeout(removeYellowBorder, 900);
-        }else if(color === "blue"){
-            setTimeout(addBlueBorder, 800);
-            setTimeout(removeBlueBorder, 1200);
-        }else if(color === "red"){
-            setTimeout(addRedBorder, 1100);
-            setTimeout(removeRedBorder, 1500);
-        }
-    }
-} */
+
 
 function lightFirstPattern(){
     setTimeout(addGreenBorder, 0)
@@ -178,9 +161,13 @@ function removeRedBorder(){
 }
 
 function failMessage(){
-    console.log('user has failed, try again');
+    playerMessageEl.textContent = "You failed, do you want to try again?";
 }
 
-function resetGame(){
-    console.log('reset game');
+function init(){
+    userPattern = [];
+    turn = 0;
+    setTimeout(addEventListeners, 100);
+    playerMessageEl.textContent = "";
 }
+
