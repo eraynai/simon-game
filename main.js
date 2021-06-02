@@ -18,14 +18,17 @@ let greenButtonEl = document.getElementById("green");
 let yellowButtonEl = document.getElementById("yellow");
 let blueButtonEl = document.getElementById("blue");
 let redButtonEl = document.getElementById("red");
-let playerMessageEl = document.getElementById('playerMessage');
-
+let playerMessageEl = document.getElementById("playerMessage");
+let setInputName = document.getElementById("setInputName");
+let getInputName = localStorage.getItem("player");
+setInputName.textContent = getInputName;
 /*--EVENT LISTENERS--*/
 
 startEl.addEventListener("click", buttonIsClicked);
 
 
 /*--FUNCTIONS--*/
+
 
 function addEventListeners(){
     greenButtonEl.addEventListener("click", buttonIsClicked);
@@ -172,6 +175,7 @@ function init(){
     setTimeout(addEventListeners, 100);
     playerMessageEl.textContent = "";
     scoreEl.textContent = "0";
+    
 }
 
 
