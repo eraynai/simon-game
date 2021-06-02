@@ -1,13 +1,15 @@
 /*--CONSTANTS--*/
-
+const gameLights = ["green", "yellow", "red", "blue"];
 const gamePattern = ["green", "green", "yellow", "green", "yellow", "blue", "green", "yellow", "blue", "red"];
-
+const eightBit = new Audio("error-8-bit.mp3");
+const eightBitTwo = new Audio("error-8-bit-2.mp3");
 
 /*--APP'S STATE VARIABLES--*/
 
 let score = 0;
 let userPattern = [];
 let turn = 0;
+let check;
 
 
 /*--CACHED ELEMENT REFERENCES--*/
@@ -30,21 +32,14 @@ startEl.addEventListener("click", buttonIsClicked);
 /*--FUNCTIONS--*/
 
 
-function addEventListeners(){
-    greenButtonEl.addEventListener("click", buttonIsClicked);
-    yellowButtonEl.addEventListener("click", buttonIsClicked);
-    blueButtonEl.addEventListener("click", buttonIsClicked);
-    redButtonEl.addEventListener("click", buttonIsClicked); 
-}
+
 
 function buttonIsClicked(e) {
     if(e.target.id === startEl.id){
-        console.log("if you see this you are starting starting");
         init(); 
         patternDriver();
     }else{
         userPattern.push(e.target.id);
-        console.log(userPattern);
         function checkPattern(){
             for(let i = 0; i < userPattern.length; i++){
                 if(userPattern[i] !== gamePattern[i]){
@@ -59,25 +54,33 @@ function buttonIsClicked(e) {
             checkScore();
             patternDriver();
         }else{
-            failMessage();
+            /* failMessage(); */
         } 
     }
-}      
+} 
 
+function addEventListeners(){
+    greenButtonEl.addEventListener("click", buttonIsClicked);
+    yellowButtonEl.addEventListener("click", buttonIsClicked);
+    blueButtonEl.addEventListener("click", buttonIsClicked);
+    redButtonEl.addEventListener("click", buttonIsClicked); 
+}
+
+/* 
 function patternDriver(){
     if(turn === 0){
-        return lightFirstPattern();
+        lightFirstPattern(); 
     }
     if(turn === 1) {
-        return lightSecondPattern();
+        lightSecondPattern();
     }
     if (turn === 3){
-     return lightThirdPattern();
+        lightThirdPattern();
     }
     if (turn === 6){
-        return lightFourthPattern();
+        lightFourthPattern();
     }   
-}
+} */
 
 
 
@@ -87,7 +90,32 @@ function checkWinner(){
     }
 }
 
-function lightFirstPattern(){
+function patternDriver(){
+    for(let pattern of gamePattern){
+        boardMaker(pattern);
+    }
+}
+
+function boardMaker(color){
+    for(let light of gameLights){
+        if(light === "green"){
+            setTimeout(addGreenBorder, 0);
+            setTimeout(removeGreenBorder, 1000);
+        }else if(light === "yellow"){
+            setTimeout(addYellowBorder, 1000);
+            setTimeout(removeYellowBorder, 2000);
+        }else if(light === "blue"){
+            setTimeout(addBlueBorder, 2000);
+            setTimeout(removeBlueBorder, 3000);
+        }else if(light === "red"){
+            setTimeout(addRedBorder, 3000);
+            setTimeout(removeRedBorder, 4000);
+        }
+    }
+}
+
+
+/* function lightFirstPattern(){
     setTimeout(addGreenBorder, 0)
     setTimeout(removeGreenBorder, 1000);
     
@@ -119,7 +147,7 @@ function lightFourthPattern(){
     setTimeout(addRedBorder, 3000);
     setTimeout(removeRedBorder, 4000);
 
-}
+} */
 
 function render(){
     checkWinner();
@@ -131,10 +159,12 @@ setInterval(render, 300);
 
 function addGreenBorder(){
     greenButtonEl.classList.add("green-ani");
+    eightBit.play();
 }
 
 function addYellowBorder(){
     yellowButtonEl.classList.add("yellow-ani");
+    eightBitTwo.play();
 }
 
 function addBlueBorder(){
@@ -177,5 +207,4 @@ function init(){
     scoreEl.textContent = "0";
     
 }
-
 

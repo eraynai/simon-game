@@ -135,6 +135,7 @@ animation: green-button .4s linear .3s;
     z-index: 1;
     top: 490px;
     left: 415px;
+    width: 50px;
 }
 
 .message {

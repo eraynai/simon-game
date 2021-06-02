@@ -48,6 +48,8 @@ MVP 4.0 - Fix any bugs, dry up code, add difficulty changer to the game and any 
 
 MVP 5.0 - Present final Simon Game
 
-### Ideas
+### Credit
 
-The idea for the algorithm of the game loop is that every time the player clicks on the button we grab the value of button and push that value inside an array.  Then we do a comparison between the pattern array and the new array.
+8-bit Error - https://freesound.org/people/Mrthenoronha/sounds/510775/
+8-bit Error - https://freesound.org/people/SamsterBirdies/sounds/363920/
+
