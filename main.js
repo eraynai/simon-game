@@ -1,6 +1,9 @@
 /*--CONSTANTS--*/
-const gameLights = ["green", "yellow", "red", "blue"];
-const gamePattern = ["green", "green", "yellow", "green", "yellow", "blue", "green", "yellow", "blue", "red"];
+const easyPattern = ["green", "green", "yellow", "green", "yellow", "blue", "green", "yellow", "blue", "red"];
+const easy1 = ['green'];
+const easy2 = ['green', 'yellow'];
+const easy3 = ["green", "yellow", "blue"];
+const easy4 = ["green", "yellow", "blue", "red"];
 const eightBit = new Audio("error-8-bit.mp3");
 const eightBitTwo = new Audio("error-8-bit-2.mp3");
 
@@ -9,8 +12,6 @@ const eightBitTwo = new Audio("error-8-bit-2.mp3");
 let score = 0;
 let userPattern = [];
 let turn = 0;
-let check;
-
 
 /*--CACHED ELEMENT REFERENCES--*/
 
@@ -24,25 +25,20 @@ let playerMessageEl = document.getElementById("playerMessage");
 let setInputName = document.getElementById("setInputName");
 let getInputName = localStorage.getItem("player");
 setInputName.textContent = getInputName;
+
 /*--EVENT LISTENERS--*/
 
 startEl.addEventListener("click", buttonIsClicked);
 
-
-/*--FUNCTIONS--*/
-
-
-
-
 function buttonIsClicked(e) {
     if(e.target.id === startEl.id){
-        init(); 
-        patternDriver();
+        init();
+        easyPatterns();
     }else{
         userPattern.push(e.target.id);
         function checkPattern(){
             for(let i = 0; i < userPattern.length; i++){
-                if(userPattern[i] !== gamePattern[i]){
+                if(userPattern[i] !== easyPattern[i]){
                 return false;
                 }    
             }
@@ -52,12 +48,13 @@ function buttonIsClicked(e) {
             turn++;
             score++;
             checkScore();
-            patternDriver();
+            easyPatterns();
+            checkEasyWinner();
         }else{
-            /* failMessage(); */
+            failMessage();
         } 
     }
-} 
+}
 
 function addEventListeners(){
     greenButtonEl.addEventListener("click", buttonIsClicked);
@@ -66,95 +63,61 @@ function addEventListeners(){
     redButtonEl.addEventListener("click", buttonIsClicked); 
 }
 
-/* 
-function patternDriver(){
+
+function easyPatterns(){
     if(turn === 0){
-        lightFirstPattern(); 
+        for(let easy of easy1){
+            boardMaker(easy);
+        }
     }
     if(turn === 1) {
-        lightSecondPattern();
+        for(let easy of easy2){
+            boardMaker(easy);
+        }
     }
     if (turn === 3){
-        lightThirdPattern();
+        for(let easy of easy3){
+            boardMaker(easy);
+        }
     }
     if (turn === 6){
-        lightFourthPattern();
+        for(let easy of easy4){
+            boardMaker(easy);
+        }
     }   
-} */
+}
 
 
 
-function checkWinner(){ 
-    if(turn >= gamePattern.length){
+function checkEasyWinner(){ 
+    if(turn >= easyPattern.length){
         playerMessageEl.textContent = "Player has beaten Simon!";
     }
 }
 
-function patternDriver(){
-    for(let pattern of gamePattern){
-        boardMaker(pattern);
-    }
-}
 
 function boardMaker(color){
-    for(let light of gameLights){
-        if(light === "green"){
-            setTimeout(addGreenBorder, 0);
-            setTimeout(removeGreenBorder, 1000);
-        }else if(light === "yellow"){
-            setTimeout(addYellowBorder, 1000);
-            setTimeout(removeYellowBorder, 2000);
-        }else if(light === "blue"){
-            setTimeout(addBlueBorder, 2000);
-            setTimeout(removeBlueBorder, 3000);
-        }else if(light === "red"){
-            setTimeout(addRedBorder, 3000);
-            setTimeout(removeRedBorder, 4000);
-        }
+    if(color === "green"){
+        setTimeout(addGreenBorder, 0);
+        setTimeout(removeGreenBorder, 1000);
+    }else if(color === "yellow"){
+        setTimeout(addYellowBorder, 1000);
+        setTimeout(removeYellowBorder, 2000);
+    }else if(color === "blue"){
+        setTimeout(addBlueBorder, 2000);
+        setTimeout(removeBlueBorder, 3000);
+    }else if(color === "red"){
+        setTimeout(addRedBorder, 3000);
+        setTimeout(removeRedBorder, 4000);
     }
 }
 
-
-/* function lightFirstPattern(){
-    setTimeout(addGreenBorder, 0)
-    setTimeout(removeGreenBorder, 1000);
-    
-}
-
-function lightSecondPattern(){
-    setTimeout(addGreenBorder, 0);
-    setTimeout(removeGreenBorder, 1000);
-    setTimeout(addYellowBorder, 1000);
-    setTimeout(removeYellowBorder, 2000);
-}
-
-function lightThirdPattern(){
-    setTimeout(addGreenBorder, 0);
-    setTimeout(removeGreenBorder, 1000);
-    setTimeout(addYellowBorder, 1000);
-    setTimeout(removeYellowBorder, 2000);
-    setTimeout(addBlueBorder, 2000);
-    setTimeout(removeBlueBorder, 3000);
-}
-
-function lightFourthPattern(){
-    setTimeout(addGreenBorder, 0);
-    setTimeout(removeGreenBorder, 1000);
-    setTimeout(addYellowBorder, 1000);
-    setTimeout(removeYellowBorder, 2000);
-    setTimeout(addBlueBorder, 2000);
-    setTimeout(removeBlueBorder, 3000);
-    setTimeout(addRedBorder, 3000);
-    setTimeout(removeRedBorder, 4000);
-
-} */
-
-function render(){
-    checkWinner();
+/* function render(){
+    checkEasyWinner();
    
 }
 
-setInterval(render, 300);
+setInterval(render, 300); */
 
 
 function addGreenBorder(){
@@ -205,6 +168,5 @@ function init(){
     setTimeout(addEventListeners, 100);
     playerMessageEl.textContent = "";
     scoreEl.textContent = "0";
-    
 }
 

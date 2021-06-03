@@ -19,9 +19,6 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr;
-    /* justify-content: center;
-    align-items: center;
-    flex-direction: column; */
 }
 
 button {
@@ -130,18 +127,12 @@ animation: green-button .4s linear .3s;
     position: relative;
 }
 
-.start-button {
-    position: absolute;
-    z-index: 1;
-    top: 490px;
-    left: 415px;
-    width: 50px;
-}
 
 .message {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-left: 40%;
 }
 
 .wrapper {
@@ -203,3 +194,23 @@ input::placeholder{
     align-items: center;
     padding: 2rem;
 }
+
+.easy-button{
+    width: 40px;
+}
+
+.letterE {
+    position: absolute;
+    left: 227px;
+    top: 328px;
+}
+
+.letterE:hover {
+    color: #E5E5E5;
+}
+
+
+
+.score-message h2 {
+    font-size: 2rem;
+} 
