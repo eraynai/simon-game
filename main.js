@@ -4,14 +4,24 @@ const easy1 = ['green'];
 const easy2 = ['green', 'yellow'];
 const easy3 = ["green", "yellow", "blue"];
 const easy4 = ["green", "yellow", "blue", "red"];
+/* const mediumPattern = ["green", "red", "blue", "green", "yellow", "red", "red", "blue", "green", "yellow", "red", "blue", "yellow", "green"];
+const medium1 = ["green", "red"];
+const medium2 = ["blue", "green", "yellow", "red"];
+const medium3 = ["red", "blue", "red", "green", "yellow"];
+const medium4 = ["red", "blue", "yellow", "green"]; */
 const eightBit = new Audio("error-8-bit.mp3");
 const eightBitTwo = new Audio("error-8-bit-2.mp3");
+
 
 /*--APP'S STATE VARIABLES--*/
 
 let score = 0;
 let userPattern = [];
 let turn = 0;
+let easyTimer =   [1500, 2500, 3500, 4500, 5500];
+let mediumTimer = [1000, 2000, 3000, 4000, 5000];
+let hardTimer =   [500, 1500, 2500, 3500, 4500];
+let finalTimer = [];
 
 /*--CACHED ELEMENT REFERENCES--*/
 
@@ -25,29 +35,58 @@ let playerMessageEl = document.getElementById("playerMessage");
 let setInputName = document.getElementById("setInputName");
 let getInputName = localStorage.getItem("player");
 let easyB = document.getElementById("easyB");
+let mediumB = document.getElementById("mediumB");
+let hardB = document.getElementById("hardB");
+let restartB = document.getElementById("restartB");
 
 
 setInputName.textContent = getInputName;
 
 /*--EVENT LISTENERS--*/
 
-/* startEl.addEventListener("click", buttonIsClicked); */
 easyB.addEventListener("click", buttonIsClicked);
+mediumB.addEventListener("click", buttonIsClicked);
+hardB.addEventListener("click", buttonIsClicked);
+restartB.addEventListener("click", buttonIsClicked);
 
 
 
 function buttonIsClicked(e) {
-    if(e.target.id === easyB.id){
-        console.log("are you running?");
+    easyButtonPattern(e);
+    restartButtonPattern(e);
+}
+
+function addEventListeners(){
+    greenButtonEl.addEventListener("click", buttonIsClicked);
+    yellowButtonEl.addEventListener("click", buttonIsClicked);
+    blueButtonEl.addEventListener("click", buttonIsClicked);
+    redButtonEl.addEventListener("click", buttonIsClicked); 
+}
+
+
+
+function easyButtonPattern(el){
+    if(el.target.id === easyB.id || el.target.id === mediumB.id || el.target.id === hardB.id){
+        switch(el.target.id){
+            case easyB.id:
+                finalTimer = easyTimer;
+                break;
+            case mediumB.id:
+                finalTimer = mediumTimer;
+                break;
+            case hardB.id:
+                finalTimer = hardTimer;
+                break;
+        }
         init();
         setTimeout(addGreenBorder, 0);
         setTimeout(removeGreenBorder, 1000);
     }else{
-        flashWhenClicked(e);
+        flashWhenClicked(el);
         function checkPattern(){
             for(let i = 0; i < userPattern.length; i++){
                 if(userPattern[i] !== easyPattern[i]){
-                return false;
+                    return false;
                 }    
             }
             return true;  
@@ -64,36 +103,10 @@ function buttonIsClicked(e) {
     }
 }
 
-function addEventListeners(){
-    greenButtonEl.addEventListener("click", buttonIsClicked);
-    yellowButtonEl.addEventListener("click", buttonIsClicked);
-    blueButtonEl.addEventListener("click", buttonIsClicked);
-    redButtonEl.addEventListener("click", buttonIsClicked); 
-}
-
-function flashWhenClicked(el){
-    if(el.target.id === greenButtonEl.id){
-        console.log('is flash when clicked working?');
-        setTimeout(addGreenBorder, 0);
-        setTimeout(removeGreenBorder, 1000);
-        userPattern.push(el.target.id);
-    }else if(el.target.id === yellowButtonEl.id){
-        setTimeout(addYellowBorder, 0);
-        setTimeout(removeYellowBorder, 1000);
-        userPattern.push(el.target.id);
-    }else if(el.target.id === blueButtonEl.id){
-        setTimeout(addBlueBorder, 0);
-        setTimeout(removeBlueBorder, 1000);
-        userPattern.push(el.target.id);
-    }else if(el.target.id === redButtonEl.id){
-        setTimeout(addRedBorder, 0);
-        setTimeout(removeRedBorder, 1000);
-        userPattern.push(el.target.id);
+function restartButtonPattern(el){
+    if(el.target.id === restartB.id){
+        init();
     }
-}
-
-function easyButtonPattern(){
-
 }
 
 function easyPatterns(){
@@ -119,36 +132,49 @@ function easyPatterns(){
     }   
 }
 
+function flashWhenClicked(el){
+    if(el.target.id === greenButtonEl.id){
+        setTimeout(addGreenBorder, 0);
+        setTimeout(removeGreenBorder, 1000);
+        userPattern.push(el.target.id);
+    }else if(el.target.id === yellowButtonEl.id){
+        setTimeout(addYellowBorder, 0);
+        setTimeout(removeYellowBorder, 1000);
+        userPattern.push(el.target.id);
+    }else if(el.target.id === blueButtonEl.id){
+        setTimeout(addBlueBorder, 0);
+        setTimeout(removeBlueBorder, 1000);
+        userPattern.push(el.target.id);
+    }else if(el.target.id === redButtonEl.id){
+        setTimeout(addRedBorder, 0);
+        setTimeout(removeRedBorder, 1000);
+        userPattern.push(el.target.id);
+    }
+}
 
 
 function checkEasyWinner(){ 
     if(turn >= easyPattern.length){
-        playerMessageEl.textContent = "Player has beaten Simon!";
+        playerMessageEl.textContent = "Player has beaten Simon! on the easy level";
     }
 }
 
 function boardMaker(color){
     if(color === "green"){
-        setTimeout(addGreenBorder, 1500);
-        setTimeout(removeGreenBorder, 2500);
+        setTimeout(addGreenBorder, finalTimer[0]);
+        setTimeout(removeGreenBorder, finalTimer[1]);
     }else if(color === "yellow"){
-        setTimeout(addYellowBorder, 2500);
-        setTimeout(removeYellowBorder, 3500);
+        setTimeout(addYellowBorder, finalTimer[1]);
+        setTimeout(removeYellowBorder, finalTimer[2]);
     }else if(color === "blue"){
-        setTimeout(addBlueBorder, 3500);
-        setTimeout(removeBlueBorder, 4500);
+        setTimeout(addBlueBorder, finalTimer[2]);
+        setTimeout(removeBlueBorder, finalTimer[3]);
     }else if(color === "red"){
-        setTimeout(addRedBorder, 4500);
-        setTimeout(removeRedBorder, 5500);
+        setTimeout(addRedBorder, finalTimer[3]);
+        setTimeout(removeRedBorder, finalTimer[4]);
     }
 }
 
-/* function render(){
-    checkEasyWinner();
-   
-}
-
-setInterval(render, 300); */
 
 
 function addGreenBorder(){

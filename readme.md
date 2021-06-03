@@ -52,4 +52,5 @@ MVP 5.0 - Present final Simon Game
 
 8-bit Error - https://freesound.org/people/Mrthenoronha/sounds/510775/
 8-bit Error - https://freesound.org/people/SamsterBirdies/sounds/363920/
+8-bit Death Sound - https://freesound.org/people/MentosLat/sounds/417486/
 
