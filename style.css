@@ -238,6 +238,30 @@ input::placeholder{
     
 }
 
+.restartButtons {
+    position: absolute;
+    top: 34%;
+    display: flex;
+    margin-left: 2.3rem;
+}
+
 .clickButton {
     width: 55%;
+}
+
+.easyButton, .mediumButton, .hardButton, .restartButton {
+    position: relative;
+    display: inline-block;
+}
+
+.easyButton .clickButton-top, .mediumButton .clickButton-top, .hardButton .clickButton-top, .restartButton .clickButton-top {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 99;
+}
+
+.easyButton:hover .clickButton-top, .mediumButton:hover .clickButton-top, .hardButton:hover .clickButton-top, .restartButton:hover .clickButton-top{
+    display: inline;
 }

@@ -24,27 +24,26 @@ let redButtonEl = document.getElementById("red");
 let playerMessageEl = document.getElementById("playerMessage");
 let setInputName = document.getElementById("setInputName");
 let getInputName = localStorage.getItem("player");
-setInputName.textContent = getInputName;
-let redb = document.getElementById("Red-2");
 let easyB = document.getElementById("easyB");
+
+
+setInputName.textContent = getInputName;
 
 /*--EVENT LISTENERS--*/
 
 /* startEl.addEventListener("click", buttonIsClicked); */
 easyB.addEventListener("click", buttonIsClicked);
-console.log('clicking?');
 
-redb.addEventListener("click", function (){
-})
+
 
 function buttonIsClicked(e) {
     if(e.target.id === easyB.id){
         console.log("are you running?");
         init();
-        easyPatterns();
+        setTimeout(addGreenBorder, 0);
+        setTimeout(removeGreenBorder, 1000);
     }else{
-        console.log('Am i jumping into this?');
-        userPattern.push(e.target.id);
+        flashWhenClicked(e);
         function checkPattern(){
             for(let i = 0; i < userPattern.length; i++){
                 if(userPattern[i] !== easyPattern[i]){
@@ -60,7 +59,6 @@ function buttonIsClicked(e) {
             easyPatterns();
             checkEasyWinner();
         }else{
-            console.log('am i going to fail?')
             failMessage();
         } 
     }
@@ -73,11 +71,34 @@ function addEventListeners(){
     redButtonEl.addEventListener("click", buttonIsClicked); 
 }
 
+function flashWhenClicked(el){
+    if(el.target.id === greenButtonEl.id){
+        console.log('is flash when clicked working?');
+        setTimeout(addGreenBorder, 0);
+        setTimeout(removeGreenBorder, 1000);
+        userPattern.push(el.target.id);
+    }else if(el.target.id === yellowButtonEl.id){
+        setTimeout(addYellowBorder, 0);
+        setTimeout(removeYellowBorder, 1000);
+        userPattern.push(el.target.id);
+    }else if(el.target.id === blueButtonEl.id){
+        setTimeout(addBlueBorder, 0);
+        setTimeout(removeBlueBorder, 1000);
+        userPattern.push(el.target.id);
+    }else if(el.target.id === redButtonEl.id){
+        setTimeout(addRedBorder, 0);
+        setTimeout(removeRedBorder, 1000);
+        userPattern.push(el.target.id);
+    }
+}
+
+function easyButtonPattern(){
+
+}
 
 function easyPatterns(){
     if(turn === 0){
         for(let easy of easy1){
-            console.log('is this being called?');
             boardMaker(easy);
         }
     }
@@ -106,20 +127,19 @@ function checkEasyWinner(){
     }
 }
 
-
 function boardMaker(color){
     if(color === "green"){
-        setTimeout(addGreenBorder, 0);
-        setTimeout(removeGreenBorder, 1000);
+        setTimeout(addGreenBorder, 1500);
+        setTimeout(removeGreenBorder, 2500);
     }else if(color === "yellow"){
-        setTimeout(addYellowBorder, 1000);
-        setTimeout(removeYellowBorder, 2000);
+        setTimeout(addYellowBorder, 2500);
+        setTimeout(removeYellowBorder, 3500);
     }else if(color === "blue"){
-        setTimeout(addBlueBorder, 2000);
-        setTimeout(removeBlueBorder, 3000);
+        setTimeout(addBlueBorder, 3500);
+        setTimeout(removeBlueBorder, 4500);
     }else if(color === "red"){
-        setTimeout(addRedBorder, 3000);
-        setTimeout(removeRedBorder, 4000);
+        setTimeout(addRedBorder, 4500);
+        setTimeout(removeRedBorder, 5500);
     }
 }
 
@@ -179,5 +199,6 @@ function init(){
     setTimeout(addEventListeners, 100);
     playerMessageEl.textContent = "";
     scoreEl.textContent = "0";
+    score = 0;
 }
 
