@@ -25,16 +25,25 @@ let playerMessageEl = document.getElementById("playerMessage");
 let setInputName = document.getElementById("setInputName");
 let getInputName = localStorage.getItem("player");
 setInputName.textContent = getInputName;
+let redb = document.getElementById("Red-2");
+let easyB = document.getElementById("easyB");
 
 /*--EVENT LISTENERS--*/
 
-startEl.addEventListener("click", buttonIsClicked);
+/* startEl.addEventListener("click", buttonIsClicked); */
+easyB.addEventListener("click", buttonIsClicked);
+console.log('clicking?');
+
+redb.addEventListener("click", function (){
+})
 
 function buttonIsClicked(e) {
-    if(e.target.id === startEl.id){
+    if(e.target.id === easyB.id){
+        console.log("are you running?");
         init();
         easyPatterns();
     }else{
+        console.log('Am i jumping into this?');
         userPattern.push(e.target.id);
         function checkPattern(){
             for(let i = 0; i < userPattern.length; i++){
@@ -51,6 +60,7 @@ function buttonIsClicked(e) {
             easyPatterns();
             checkEasyWinner();
         }else{
+            console.log('am i going to fail?')
             failMessage();
         } 
     }
@@ -67,6 +77,7 @@ function addEventListeners(){
 function easyPatterns(){
     if(turn === 0){
         for(let easy of easy1){
+            console.log('is this being called?');
             boardMaker(easy);
         }
     }

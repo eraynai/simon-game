@@ -123,7 +123,9 @@ animation: green-button .4s linear .3s;
     to {fill: #FFFFFF;} 
   }
   
-.svg-container {
+.svg-container { 
+    display: flex;
+    justify-content: center;
     position: relative;
 }
 
@@ -201,16 +203,41 @@ input::placeholder{
 
 .letterE {
     position: absolute;
-    left: 227px;
-    top: 328px;
+    left: 228px;
+    top: 332px;
 }
 
-.letterE:hover {
+.letterM {
+    position: absolute;
+    top: 332px;
+    left: 297px;
+}
+
+.letterE:hover, .letterM:hover {
     color: #E5E5E5;
 }
 
-
+.svg-container h2 {
+    font-size: 1.3rem;
+}
 
 .score-message h2 {
     font-size: 2rem;
 } 
+
+#redhover:hover, #redhover:visited {
+    fill: white;
+}
+
+.buttons {
+    position:absolute;
+    top: 57%;
+    display: flex;
+    width: 20%;
+    margin-left: 2rem;
+    
+}
+
+.clickButton {
+    width: 55%;
+}
