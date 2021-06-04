@@ -1,5 +1,5 @@
 /*--CONSTANTS--*/
-const easyPattern = ["green", "yellow", "blue", "red"];
+const pattern = ["green", "yellow", "blue", "red"];
 const getItemOne = new Audio("get-item-1-8-bit.mp3");
 const getItemTwo = new Audio("get-item-2-8-bit.mp3");
 const getItemThree = new Audio("get-item-3-8-bit.mp3");
@@ -44,9 +44,8 @@ restartB.addEventListener("click", buttonIsClicked);
 
 
 function buttonIsClicked(e) {
-    easyButtonPattern(e);
+    buttonPattern(e);
     restartButtonPattern(e);
-    console.log("is the sound coming from here?")
 }
 
 function addEventListeners(){
@@ -56,7 +55,7 @@ function addEventListeners(){
     redButtonEl.addEventListener("click", buttonIsClicked); 
 }
 
-function easyButtonPattern(el){
+function buttonPattern(el){
     if(el.target.id === easyB.id || el.target.id === mediumB.id || el.target.id === hardB.id){
         /* level set up for difficulty */
         switch(el.target.id){
@@ -70,7 +69,6 @@ function easyButtonPattern(el){
                 finalTimer = hardTimer;
                 break;
         }
-        console.log("are any consoles working?");
         init();
         setTimeout(addGreenBorder, 0);
         setTimeout(removeGreenBorder, 1000);
@@ -83,8 +81,8 @@ function easyButtonPattern(el){
                 score++;
                 checkScore();    
                 userPattern = [];
-                if(!checkEasyWinner()){
-                    easyPatterns();
+                if(!checkWinner()){
+                    loopPatterns();
                 };
             } 
         }else{
@@ -95,7 +93,7 @@ function easyButtonPattern(el){
 
 function checkPattern(){
     for(let i = 0; i < userPattern.length; i++){
-        if(userPattern[i] !== easyPattern[i]){
+        if(userPattern[i] !== pattern[i]){
             return false;
         }    
     }
@@ -104,15 +102,13 @@ function checkPattern(){
 
 function restartButtonPattern(el){
     if(el.target.id === restartB.id){
-        console.log("where is the sound coming from?");
         init();
-        
     }
 }
 
-function easyPatterns(){
+function loopPatterns(){
     for(let i = 0; i <= turn; i++){
-        boardMaker(easyPattern[i]);
+        boardMaker(pattern[i]);
     }
 }
 
@@ -152,8 +148,8 @@ function boardMaker(color){
     }
 }
 
-function checkEasyWinner(){ 
-    if(turn >= easyPattern.length){
+function checkWinner(){ 
+    if(turn >= pattern.length){
         playerMessageEl.textContent = `${getInputName} has beaten Simon!`;
         winSound.play();
         return true;
@@ -198,7 +194,7 @@ function removeRedBorder(){
 
 function failMessage(){
     playerMessageEl.textContent = `${getInputName}, you failed do you want to try again?`;
-    
+    errorSound.play();
 }
 
 function checkScore(){

@@ -299,6 +299,14 @@ input::placeholder{
     cursor: pointer;
 }
 
+.message h1{
+    color: #05A34C;
+}
+
+.message h2 {
+    color: red;
+}
+
 /* Medium devices (tablets, less than 992px)*/
 @media (max-width: 991.98px) { 
 
