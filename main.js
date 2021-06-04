@@ -46,6 +46,7 @@ restartB.addEventListener("click", buttonIsClicked);
 function buttonIsClicked(e) {
     easyButtonPattern(e);
     restartButtonPattern(e);
+    console.log("is the sound coming from here?")
 }
 
 function addEventListeners(){
@@ -69,6 +70,7 @@ function easyButtonPattern(el){
                 finalTimer = hardTimer;
                 break;
         }
+        console.log("are any consoles working?");
         init();
         setTimeout(addGreenBorder, 0);
         setTimeout(removeGreenBorder, 1000);
@@ -87,7 +89,6 @@ function easyButtonPattern(el){
             } 
         }else{
             failMessage();
-            errorSound.play();
         } 
     }
 }
@@ -103,7 +104,9 @@ function checkPattern(){
 
 function restartButtonPattern(el){
     if(el.target.id === restartB.id){
+        console.log("where is the sound coming from?");
         init();
+        
     }
 }
 

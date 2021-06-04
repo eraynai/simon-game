@@ -207,6 +207,18 @@ input::placeholder{
     text-align: center;
 }
 
+.instructions h2 {
+    font-size: 2rem;
+}
+
+.instructions h3 {
+    font-size: 1.8rem;
+}
+
+.instructions p {
+    font-size: 1.2rem;
+}
+
 .easy-button{
     width: 40px;
 }
@@ -281,6 +293,12 @@ input::placeholder{
     vertical-align: bottom;
 }
 
+.submitName:hover{
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+
 /* Medium devices (tablets, less than 992px)*/
 @media (max-width: 991.98px) { 
 
@@ -305,4 +323,6 @@ input::placeholder{
         justify-content: center;
     }
 }
+
+
 
