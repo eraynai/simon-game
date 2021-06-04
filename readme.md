@@ -27,7 +27,7 @@ The goals of the game is to click on the buttons that the computer lights up, in
 
 ## Getting Started
 
-Please click on the link to start the game: [Simon]()
+Please click on the link to start the game: [Simon](https://pages.git.generalassemb.ly/eraynai/simon-game/)
 
 ## User Stories
 
