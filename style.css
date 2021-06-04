@@ -293,6 +293,10 @@ input::placeholder{
     vertical-align: bottom;
 }
 
+.submitName {
+    background-color: grey;
+}
+
 .submitName:hover{
     background-color: black;
     color: white;
