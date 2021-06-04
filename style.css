@@ -1,10 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
 *, :before, :after {
     box-sizing: border-box;
 }
 
 body {
     margin: 0;
-background-color: grey;
+    background: rgb(238,174,202);
+    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+    font-family: 'Roboto Mono', monospace;
 }
 
 
@@ -15,11 +19,9 @@ background-color: grey;
 }
 
 .button-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
 }
 
 button {
@@ -101,7 +103,7 @@ animation: green-button .4s linear .3s;
 }
 
 .example{
-    width: 900px;
+    width: 600px;
 }
 
 @keyframes green-button {
@@ -124,19 +126,183 @@ animation: green-button .4s linear .3s;
     to {fill: #FFFFFF;} 
   }
   
-.svg-container {
+.svg-container { 
+    display: flex;
+    justify-content: center;
     position: relative;
 }
 
-.start-button {
-    position: absolute;
-    z-index: 1;
-    top: 490px;
-    left: 415px;
-}
 
 .message {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
+
+.wrapper {
+    margin: 0 auto;
+    width: 80%;
+}
+
+.main-logo {
+    
+    width: 200px;
+    justify-self: center;
+
+}
+
+.grid-wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto auto;
+    margin-top: 10%;
+}
+
+.flex-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+
+input {
+    
+    border-radius: 20px;
+    padding: 0.8rem;
+    font-size: 1.2rem;
+    justify-self: center;
+    border: none;
+    background-color: #E5E5E5;
+}
+input::placeholder{
+    color: #000000;
+}
+
+.main-title, .sub-title {
+    justify-self: center;
+}
+
+.position-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+
+.submit-button{
+    /* display: inline-block;*/
+    justify-self: center;
+    padding: 1.2rem;
+}
+
+.submit-button button {
+    border-radius: 20px;
+}
+
+.instructions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    text-align: center;
+}
+
+.easy-button{
+    width: 40px;
+}
+
+.letterE {
+    position: absolute;
+    left: 228px;
+    top: 332px;
+}
+
+.letterM {
+    position: absolute;
+    top: 332px;
+    left: 297px;
+}
+
+.letterE:hover, .letterM:hover {
+    color: #E5E5E5;
+}
+
+.svg-container h2 {
+    font-size: 1.3rem;
+}
+
+.score-message h2 {
+    font-size: 2rem;
+} 
+
+#redhover:hover, #redhover:visited {
+    fill: white;
+}
+
+.buttons {
+    position:absolute;
+    top: 57%;
+    display: flex;
+    width: 20%;
+    margin-left: 2rem;
+    
+}
+
+.restartButtons {
+    position: absolute;
+    top: 34%;
+    display: flex;
+    margin-left: 2.3rem;
+}
+
+.clickButton {
+    width: 70%;
+}
+
+.easyButton, .mediumButton, .hardButton, .restartButton {
+    position: relative;
+    display: inline-block;
+}
+
+.easyButton .clickButton-top, .mediumButton .clickButton-top, .hardButton .clickButton-top, .restartButton .clickButton-top {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 99;
+}
+
+.easyButton:hover .clickButton-top, .mediumButton:hover .clickButton-top, .hardButton:hover .clickButton-top, .restartButton:hover .clickButton-top{
+    display: inline;
+}
+
+.icons {
+    width: 20px;
+    vertical-align: bottom;
+}
+
+/* Medium devices (tablets, less than 992px)*/
+@media (max-width: 991.98px) { 
+
+    .button-container {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+    }
+
+    
+    .svg-container{
+        grid-row-start: 1;
+        grid-row-end: 2;
+    }
+
+    .example {
+        display: flex;
+        justify-content: center;   
+    }
+
+    .message {
+        flex-direction: row;
+        justify-content: center;
+    }
+}
+
