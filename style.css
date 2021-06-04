@@ -135,7 +135,8 @@ animation: green-button .4s linear .3s;
 
 .message {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
 .wrapper {

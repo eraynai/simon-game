@@ -1,11 +1,11 @@
 /*--CONSTANTS--*/
 const easyPattern = ["green", "yellow", "blue", "red"];
-/* const easy1 = ['green'];
-const easy2 = ['green', 'yellow'];
-const easy3 = ["green", "yellow", "blue"];
-const easy4 = ["green", "yellow", "blue", "red"]; */
-const eightBit = new Audio("error-8-bit.mp3");
-const eightBitTwo = new Audio("error-8-bit-2.mp3");
+const getItemOne = new Audio("get-item-1-8-bit.mp3");
+const getItemTwo = new Audio("get-item-2-8-bit.mp3");
+const getItemThree = new Audio("get-item-3-8-bit.mp3");
+const getItemFour = new Audio("get-item-4-8-bit.mp3");
+const errorSound = new Audio("error-8-bit-2.mp3");
+const winSound = new Audio("jump-spring-8-bit.mp3");
 
 
 /*--APP'S STATE VARIABLES--*/
@@ -13,9 +13,9 @@ const eightBitTwo = new Audio("error-8-bit-2.mp3");
 let score = 0;
 let userPattern = [];
 let turn = 0;
-let easyTimer =   [1500, 2500, 3500, 4500, 5500];
-let mediumTimer = [1000, 2000, 3000, 4000, 5000];
-let hardTimer =   [500, 1500, 2500, 3500, 4500];
+let easyTimer =   [2000, 3000, 4000, 5000, 6000];
+let mediumTimer = [1500, 2500, 3500, 4500, 5500];
+let hardTimer =   [1000, 2000, 3000, 4000, 5000];
 let finalTimer = [];
 
 /*--CACHED ELEMENT REFERENCES--*/
@@ -33,9 +33,6 @@ let easyB = document.getElementById("easyB");
 let mediumB = document.getElementById("mediumB");
 let hardB = document.getElementById("hardB");
 let restartB = document.getElementById("restartB");
-
-
-setInputName.textContent = getInputName;
 
 /*--EVENT LISTENERS--*/
 
@@ -58,8 +55,6 @@ function addEventListeners(){
     redButtonEl.addEventListener("click", buttonIsClicked); 
 }
 
-
-
 function easyButtonPattern(el){
     if(el.target.id === easyB.id || el.target.id === mediumB.id || el.target.id === hardB.id){
         /* level set up for difficulty */
@@ -79,14 +74,7 @@ function easyButtonPattern(el){
         setTimeout(removeGreenBorder, 1000);
     }else{
         flashWhenClicked(el);
-        function checkPattern(){
-            for(let i = 0; i < userPattern.length; i++){
-                if(userPattern[i] !== easyPattern[i]){
-                    return false;
-                }    
-            }
-            return true;  
-        }
+        checkPattern();
         if(checkPattern()){
             if(turn + 1 === userPattern.length){
                 turn++;
@@ -99,8 +87,18 @@ function easyButtonPattern(el){
             } 
         }else{
             failMessage();
+            errorSound.play();
         } 
     }
+}
+
+function checkPattern(){
+    for(let i = 0; i < userPattern.length; i++){
+        if(userPattern[i] !== easyPattern[i]){
+            return false;
+        }    
+    }
+    return true;  
 }
 
 function restartButtonPattern(el){
@@ -113,26 +111,6 @@ function easyPatterns(){
     for(let i = 0; i <= turn; i++){
         boardMaker(easyPattern[i]);
     }
-    /* if(turn === 0){
-        for(let easy of easy1){
-            boardMaker(easy);
-        }
-    }
-    if(turn === 1) {
-        for(let easy of easy2){
-            boardMaker(easy);
-        }
-    }
-    if (turn === 2){
-        for(let easy of easy3){
-            boardMaker(easy);
-        }
-    }
-    if (turn === 3){
-        for(let easy of easy4){
-            boardMaker(easy);
-        }
-    }  */  
 }
 
 function flashWhenClicked(el){
@@ -155,14 +133,6 @@ function flashWhenClicked(el){
     }
 }
 
-
-function checkEasyWinner(){ 
-    if(turn >= easyPattern.length){
-        playerMessageEl.textContent = "Player has beaten Simon!";
-        return true;
-    }
-}
-
 function boardMaker(color){
     if(color === "green"){
         setTimeout(addGreenBorder, finalTimer[0]);
@@ -179,24 +149,32 @@ function boardMaker(color){
     }
 }
 
-
+function checkEasyWinner(){ 
+    if(turn >= easyPattern.length){
+        playerMessageEl.textContent = `${getInputName} has beaten Simon!`;
+        winSound.play();
+        return true;
+    }
+}
 
 function addGreenBorder(){
     greenButtonEl.classList.add("green-ani");
-    eightBit.play();
+    getItemOne.play();
 }
 
 function addYellowBorder(){
     yellowButtonEl.classList.add("yellow-ani");
-    eightBitTwo.play();
+    getItemTwo.play();
 }
 
 function addBlueBorder(){
     blueButtonEl.classList.add("blue-ani");
+    getItemThree.play();
 }
 
 function addRedBorder(){
     redButtonEl.classList.add("red-ani");
+    getItemFour.play();
 }
 
  function removeGreenBorder(){
@@ -216,7 +194,8 @@ function removeRedBorder(){
 }
 
 function failMessage(){
-    playerMessageEl.textContent = "You failed, do you want to try again?";
+    playerMessageEl.textContent = `${getInputName}, you failed do you want to try again?`;
+    
 }
 
 function checkScore(){
@@ -231,4 +210,10 @@ function init(){
     scoreEl.textContent = "0";
     score = 0;
 }
+
+function render(){
+    setInputName.textContent = getInputName;
+}
+
+setInterval(render, 100);
 
