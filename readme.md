@@ -1,5 +1,5 @@
 # Simon - Browser Game
-
+## Description
 The goals of the game is to click on the buttons that the computer lights up, in the correct order.  If the user isn't able to match the pattern, they will be prompted to try again.  If they are successful, they will be reminded to try again at tougher setting. There are currently three settings implemented in the game and the user can pick which level they want to play. Each level servers the same pattern, just the speed they are served are different.
 
 ## Screenshots of The Game
@@ -9,9 +9,21 @@ The goals of the game is to click on the buttons that the computer lights up, in
 
 ## Technologies Used
 
-HTML
-CSS
-JavaScript
+* HTML
+* CSS
+* JavaScript
+
+## Credits
+
+### Sounds Used
+
+* [8-bit Error](https://freesound.org/people/Mrthenoronha/sounds/510775/) - Fail Game Sound
+* [Jump Spring 8-bit](https://freesound.org/people/Mrthenoronha/sounds/521268/) - Win Game Sound
+* [Get Item 1 8 Bit](https://freesound.org/people/Mrthenoronha/sounds/516827/) - Green Button
+* [Get Item 2 8 Bit](https://freesound.org/people/Mrthenoronha/sounds/516826/) - Yellow Button
+* [Get Item 3 8 Bit](https://freesound.org/people/Mrthenoronha/sounds/516825/) - Blue Button
+* [Get Item 4 8 Bit](https://freesound.org/people/Mrthenoronha/sounds/516824/) - Red Button
+
 
 ## Getting Started
 
@@ -63,13 +75,3 @@ MVP 4.0 - Fix any bugs, dry up code, add difficulty changer to the game and any 
 
 MVP 5.0 - Present final Simon Game
 
-### Credit
-
-## Sounds Used
-
-[8-bit Error](https://freesound.org/people/Mrthenoronha/sounds/510775/)
-[Jump Spring 8-bit](https://freesound.org/people/Mrthenoronha/sounds/521268/)
-[Get Item 1 8 Bit](https://freesound.org/people/Mrthenoronha/sounds/516827/)
-[Get Item 2 8 Bit](https://freesound.org/people/Mrthenoronha/sounds/516826/)
-[Get Item 3 8 Bit](https://freesound.org/people/Mrthenoronha/sounds/516825/)
-[Get Item 4 8 Bit](https://freesound.org/people/Mrthenoronha/sounds/516824/)
