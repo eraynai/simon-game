@@ -144,6 +144,11 @@ animation: green-button .4s linear .3s;
     width: 80%;
 }
 
+.game-wrapper {
+    margin: 0 auto;
+    width: 90%;
+}
+
 .main-logo {
     
     width: 200px;
@@ -316,7 +321,7 @@ input::placeholder{
 
     .button-container {
         grid-template-columns: 1fr;
-        grid-template-rows: 1fr 1fr;
+        grid-template-rows: auto 1fr;
     }
 
     
