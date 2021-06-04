@@ -1,14 +1,9 @@
 /*--CONSTANTS--*/
-const easyPattern = ["green", "green", "yellow", "green", "yellow", "blue", "green", "yellow", "blue", "red"];
-const easy1 = ['green'];
+const easyPattern = ["green", "yellow", "blue", "red"];
+/* const easy1 = ['green'];
 const easy2 = ['green', 'yellow'];
 const easy3 = ["green", "yellow", "blue"];
-const easy4 = ["green", "yellow", "blue", "red"];
-/* const mediumPattern = ["green", "red", "blue", "green", "yellow", "red", "red", "blue", "green", "yellow", "red", "blue", "yellow", "green"];
-const medium1 = ["green", "red"];
-const medium2 = ["blue", "green", "yellow", "red"];
-const medium3 = ["red", "blue", "red", "green", "yellow"];
-const medium4 = ["red", "blue", "yellow", "green"]; */
+const easy4 = ["green", "yellow", "blue", "red"]; */
 const eightBit = new Audio("error-8-bit.mp3");
 const eightBitTwo = new Audio("error-8-bit-2.mp3");
 
@@ -67,6 +62,7 @@ function addEventListeners(){
 
 function easyButtonPattern(el){
     if(el.target.id === easyB.id || el.target.id === mediumB.id || el.target.id === hardB.id){
+        /* level set up for difficulty */
         switch(el.target.id){
             case easyB.id:
                 finalTimer = easyTimer;
@@ -92,11 +88,15 @@ function easyButtonPattern(el){
             return true;  
         }
         if(checkPattern()){
-            turn++;
-            score++;
-            checkScore();
-            easyPatterns();
-            checkEasyWinner();
+            if(turn + 1 === userPattern.length){
+                turn++;
+                score++;
+                checkScore();    
+                userPattern = [];
+                if(!checkEasyWinner()){
+                    easyPatterns();
+                };
+            } 
         }else{
             failMessage();
         } 
@@ -110,7 +110,10 @@ function restartButtonPattern(el){
 }
 
 function easyPatterns(){
-    if(turn === 0){
+    for(let i = 0; i <= turn; i++){
+        boardMaker(easyPattern[i]);
+    }
+    /* if(turn === 0){
         for(let easy of easy1){
             boardMaker(easy);
         }
@@ -120,16 +123,16 @@ function easyPatterns(){
             boardMaker(easy);
         }
     }
-    if (turn === 3){
+    if (turn === 2){
         for(let easy of easy3){
             boardMaker(easy);
         }
     }
-    if (turn === 6){
+    if (turn === 3){
         for(let easy of easy4){
             boardMaker(easy);
         }
-    }   
+    }  */  
 }
 
 function flashWhenClicked(el){
@@ -155,7 +158,8 @@ function flashWhenClicked(el){
 
 function checkEasyWinner(){ 
     if(turn >= easyPattern.length){
-        playerMessageEl.textContent = "Player has beaten Simon! on the easy level";
+        playerMessageEl.textContent = "Player has beaten Simon!";
+        return true;
     }
 }
 
