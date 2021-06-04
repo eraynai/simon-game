@@ -4,8 +4,8 @@ The goals of the game is to click on the buttons that the computer lights up, in
 
 ## Screenshots of The Game
 
-![](process-images/Simon%201.png)
 ![](process-images/Simon%202.png)
+![](process-images/Simon%201.png)
 
 ## Technologies Used
 
@@ -15,7 +15,7 @@ JavaScript
 
 ## Getting Started
 
-Please click on the link to start the game: [Simon](https://pages.git.generalassemb.ly/eraynai/simon-game/)
+Please click on the link to start the game: [Simon]()
 
 ## User Stories
 

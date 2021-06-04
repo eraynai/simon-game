@@ -14,8 +14,8 @@ let score = 0;
 let userPattern = [];
 let turn = 0;
 let easyTimer =   [2000, 3000, 4000, 5000, 6000];
-let mediumTimer = [1500, 2500, 3500, 4500, 5500];
-let hardTimer =   [1000, 2000, 3000, 4000, 5000];
+let mediumTimer = [1000, 2000, 3000, 4000, 5000];
+let hardTimer =   [500, 1000, 2000, 3000, 4000];
 let finalTimer = [];
 
 /*--CACHED ELEMENT REFERENCES--*/
