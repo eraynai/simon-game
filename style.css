@@ -280,3 +280,29 @@ input::placeholder{
     width: 20px;
     vertical-align: bottom;
 }
+
+/* Medium devices (tablets, less than 992px)*/
+@media (max-width: 991.98px) { 
+
+    .button-container {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+    }
+
+    
+    .svg-container{
+        grid-row-start: 1;
+        grid-row-end: 2;
+    }
+
+    .example {
+        display: flex;
+        justify-content: center;   
+    }
+
+    .message {
+        flex-direction: row;
+        justify-content: center;
+    }
+}
+

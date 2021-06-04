@@ -50,9 +50,9 @@ MVP 5.0 - Present final Simon Game
 
 ### Credit
 
+## Sounds Used
+
 8-bit Error - https://freesound.org/people/Mrthenoronha/sounds/510775/
-8-bit Error - https://freesound.org/people/SamsterBirdies/sounds/363920/
-8-bit Death Sound - https://freesound.org/people/MentosLat/sounds/417486/
 Jump Spring 8-bit - https://freesound.org/people/Mrthenoronha/sounds/521268/
 Get Item 1 8 Bit - https://freesound.org/people/Mrthenoronha/sounds/516827/
 Get Item 2 8 Bit - https://freesound.org/people/Mrthenoronha/sounds/516826/
