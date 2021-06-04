@@ -1,6 +1,21 @@
 # Simon - Browser Game
 
-The game I chose for my first project is Simon.  I was inspired to make this game as I really liked to play this game when I was a kid.  I also thing it will present a good challenge for me in my coding journey.
+The goals of the game is to click on the buttons that the computer lights up, in the correct order.  If the user isn't able to match the pattern, they will be prompted to try again.  If they are successful, they will be reminded to try again at tougher setting. There are currently three settings implemented in the game and the user can pick which level they want to play. Each level servers the same pattern, just the speed they are served are different.
+
+## Screenshots of The Game
+
+![](process-images/Simon%201.png)
+![](process-images/Simon%202.png)
+
+## Technologies Used
+
+HTML
+CSS
+JavaScript
+
+## Getting Started
+
+Please click on the link to start the game: [Simon](https://pages.git.generalassemb.ly/eraynai/simon-game/)
 
 ## User Stories
 
@@ -52,9 +67,9 @@ MVP 5.0 - Present final Simon Game
 
 ## Sounds Used
 
-8-bit Error - https://freesound.org/people/Mrthenoronha/sounds/510775/
-Jump Spring 8-bit - https://freesound.org/people/Mrthenoronha/sounds/521268/
-Get Item 1 8 Bit - https://freesound.org/people/Mrthenoronha/sounds/516827/
-Get Item 2 8 Bit - https://freesound.org/people/Mrthenoronha/sounds/516826/
-Get Item 3 8 Bit - https://freesound.org/people/Mrthenoronha/sounds/516825/
-Get Item 4 8 Bit - https://freesound.org/people/Mrthenoronha/sounds/516824/
+[8-bit Error](https://freesound.org/people/Mrthenoronha/sounds/510775/)
+[Jump Spring 8-bit](https://freesound.org/people/Mrthenoronha/sounds/521268/)
+[Get Item 1 8 Bit](https://freesound.org/people/Mrthenoronha/sounds/516827/)
+[Get Item 2 8 Bit](https://freesound.org/people/Mrthenoronha/sounds/516826/)
+[Get Item 3 8 Bit](https://freesound.org/people/Mrthenoronha/sounds/516825/)
+[Get Item 4 8 Bit](https://freesound.org/people/Mrthenoronha/sounds/516824/)
