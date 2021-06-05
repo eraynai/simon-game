@@ -59,20 +59,26 @@ function addEventListeners(){
 function buttonPattern(el){
     if(el.target.id === easyB.id || el.target.id === mediumB.id || el.target.id === hardB.id){
         /* level set up for difficulty */
+        
         switch(el.target.id){
             case easyB.id:
-                finalTimer = easyTimer;
+                finalTimer = easyTimer; 
+                setTimeout(addGreenBorder, 0);
+                setTimeout(removeGreenBorder, 1000);
+                init();
+                flashWhenClicked(el);
                 break;
             case mediumB.id:
                 finalTimer = mediumTimer;
+                setTimeout(addYellowBorder, 0);
+                setTimeout(removeYellowBorder, 1000);
+                init();
+                flashWhenClicked(el);
                 break;
             case hardB.id:
                 finalTimer = hardTimer;
                 break;
         }
-        init();
-        setTimeout(addGreenBorder, 0);
-        setTimeout(removeGreenBorder, 1000);
     }else{
         flashWhenClicked(el);
         checkPattern();
@@ -99,6 +105,15 @@ function checkPattern(){
         }    
     }
     return true;  
+}
+
+function checkMediumPattern(){
+    for (let i = 0; i < userPattern.length; i++){
+        if(userPattern[i] !== mediumPattern[i]){
+            return false;
+        }
+    }
+    return true;
 }
 
 function restartButtonPattern(el){
