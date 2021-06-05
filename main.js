@@ -1,5 +1,6 @@
 /*--CONSTANTS--*/
 const pattern = ["green", "yellow", "blue", "red"];
+const pattern2 = ["green", "yellow", "blue", "red", "orange"];
 const getItemOne = new Audio("get-item-1-8-bit.mp3");
 const getItemTwo = new Audio("get-item-2-8-bit.mp3");
 const getItemThree = new Audio("get-item-3-8-bit.mp3");
@@ -11,6 +12,7 @@ const winSound = new Audio("jump-spring-8-bit.mp3");
 /*--APP'S STATE VARIABLES--*/
 
 let score = 0;
+let generatedSequence = [];
 let userPattern = [];
 let turn = 0;
 let easyTimer =   [2000, 3000, 4000, 5000, 6000];
@@ -53,6 +55,28 @@ function addEventListeners(){
     yellowButtonEl.addEventListener("click", buttonIsClicked);
     blueButtonEl.addEventListener("click", buttonIsClicked);
     redButtonEl.addEventListener("click", buttonIsClicked); 
+}
+
+function generateNextSequence(){
+    //get a random number from the length of the easy pattern array
+    //save random number inside a variable chosen color
+    //push the color inside the generated sequence array
+} 
+
+function animateSequence(){
+    //loop through the generated sequence array and pass into boardmaker(flash color) function 
+}
+
+fuction getPatterns(){
+    counter = 0;
+    //check the 
+    //listen to the user click
+    //get the event and cross check it with generateNextSequence
+    //if not right do a fail message
+    //if correct, increment counter++
+    //if its greater than the geneatedSequences we loop back to 1
+
+    //while checkingSequence 
 }
 
 function buttonPattern(el){
