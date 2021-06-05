@@ -1,5 +1,6 @@
 /*--CONSTANTS--*/
 const pattern = ["green", "yellow", "blue", "red"];
+const mediumPattern = ["yellow", "blue", "red", "green", "blue", "red"];
 const getItemOne = new Audio("get-item-1-8-bit.mp3");
 const getItemTwo = new Audio("get-item-2-8-bit.mp3");
 const getItemThree = new Audio("get-item-3-8-bit.mp3");
