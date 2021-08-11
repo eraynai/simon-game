@@ -23,7 +23,6 @@ let finalTimer = []; */
 /*--CACHED ELEMENT REFERENCES--*/
 
 /* let scoreEl = document.getElementById("score-number");
-let startEl = document.getElementById("start");
 let greenButtonEl = document.getElementById("green");
 let yellowButtonEl = document.getElementById("yellow");
 let blueButtonEl = document.getElementById("blue");
@@ -236,43 +235,107 @@ This begins the game loop where the button that the user clicks on is captured b
 /*--CONSTANTS--*/
 
 const pattern = ["green", "yellow", "blue", "red"];
+const getItemOne = new Audio("get-item-1-8-bit.mp3");
+const getItemTwo = new Audio("get-item-2-8-bit.mp3");
+const getItemThree = new Audio("get-item-3-8-bit.mp3");
+const getItemFour = new Audio("get-item-4-8-bit.mp3");
 
 /*--APP'S STATE VARIABLES--*/
 
 let generatedSequence = [];
-let sequenceCounter = 1;
+let userPattern = [];
+let sequenceCounter = 0;
 let firstTimer = 0;
 let secondTimer = 1000;
+let score = 0;
 
 /*--CACHE ELEMENT REFERENCES--*/
+let easyB = document.getElementById("easyB");
+let scoreEl = document.getElementById("score-number");
+let playerMessageEl = document.getElementById("playerMessage");
+let greenButtonEl = document.getElementById("green");
+let yellowButtonEl = document.getElementById("yellow");
+let blueButtonEl = document.getElementById("blue");
+let redButtonEl = document.getElementById("red");
 
 /*--EVENT LISTENERS--*/
+
+easyB.addEventListener("click", buttonIsClicked);
 
 /*--FUNCTIONS--*/
 
 
-generateNextSequence();
+function buttonIsClicked(e){
+    getPatterns(e);
+}
+
+function getPatterns(e){
+    if(e.target.id === easyB.id){
+        init();
+        generateNextSequence();
+        animateSequence();
+    }else{
+        flashWhenClicked(e);
+        checkPattern()
+        if(checkPattern()){
+            sequenceCounter++;
+            console.log("Its true!");
+            console.log(sequenceCounter);
+            userPattern = [];
+            generatedSequence = [];
+            generateNextSequence();
+            animateSequence();
+            console.log(generatedSequence);
+        }
+    }
+    //check the 
+    //listen to the user click
+    //get the event and cross check it with generateNextSequence
+    //if not right do a fail message
+    //if correct, increment counter++
+    //if its greater than the geneatedSequences we loop back to 1
+
+    //while checkingSequence 
+}
+
+function checkPattern(){
+    for(let i = 0; i < userPattern.length; i++){
+        if(userPattern[i] !== generatedSequence[i]){
+            return false;
+        }    
+    }
+    return true;  
+}
+
+function checkWinner(){ 
+    if(sequenceCounter >= pattern.length){
+        playerMessageEl.textContent = `${getInputName} has beaten Simon!`;
+        winSound.play();
+        return true;
+    }
+}
+
+function failMessage(){
+    playerMessageEl.textContent = `${getInputName}, you failed do you want to try again?`;
+    errorSound.play();
+}
 
 function generateNextSequence(){
-    for(let i = 1; i <= sequenceCounter; i++){
+    for(let i = 0; i <= sequenceCounter; i++){
         let randomNumber = Math.floor(Math.random() * pattern.length);
         generatedSequence.push(pattern[randomNumber]);
     }
 } 
 
-console.log(generatedSequence);
 
 function animateSequence(){
     for(let i = 0; i < generatedSequence.length; i++){
+        console.log(generatedSequence[i]);
+        timerIncrease();
         lightUpPatterns(generatedSequence[i]);
     }
 }
 
-//run this function after I click
-function timerIncrease(){
-    firstTimer += 1000;
-    secondTimer += 1000;
-}
 
 function lightUpPatterns(color){
     if(color === "green"){
@@ -290,15 +353,88 @@ function lightUpPatterns(color){
     }
 }
 
-
-function getPatterns(){
-    counter = 0;
-    //check the 
-    //listen to the user click
-    //get the event and cross check it with generateNextSequence
-    //if not right do a fail message
-    //if correct, increment counter++
-    //if its greater than the geneatedSequences we loop back to 1
-
-    //while checkingSequence 
+function flashWhenClicked(e){
+    if(e.target.id === greenButtonEl.id){
+        setTimeout(addGreenBorder, 0);
+        setTimeout(removeGreenBorder, 1000);
+        userPattern.push(e.target.id);
+    }else if(e.target.id === yellowButtonEl.id){
+        setTimeout(addYellowBorder, 0);
+        setTimeout(removeYellowBorder, 1000);
+        userPattern.push(e.target.id);
+    }else if(e.target.id === blueButtonEl.id){
+        setTimeout(addBlueBorder, 0);
+        setTimeout(removeBlueBorder, 1000);
+        userPattern.push(e.target.id);
+    }else if(e.target.id === redButtonEl.id){
+        setTimeout(addRedBorder, 0);
+        setTimeout(removeRedBorder, 1000);
+        userPattern.push(e.target.id);
+    }
 }
+
+
+function checkScore(){
+    scoreEl.innerHTML = score;
+}
+
+//run this function after I click
+function timerIncrease(){
+    firstTimer += 250;
+    secondTimer += 250;
+}
+
+function addEventListeners(){
+    greenButtonEl.addEventListener("click", buttonIsClicked);
+    yellowButtonEl.addEventListener("click", buttonIsClicked);
+    blueButtonEl.addEventListener("click", buttonIsClicked);
+    redButtonEl.addEventListener("click", buttonIsClicked); 
+}
+
+
+function addGreenBorder(){
+    greenButtonEl.classList.add("green-ani");
+    getItemOne.play();
+}
+
+function addYellowBorder(){
+    yellowButtonEl.classList.add("yellow-ani");
+    getItemTwo.play();
+}
+
+function addBlueBorder(){
+    blueButtonEl.classList.add("blue-ani");
+    getItemThree.play();
+}
+
+function addRedBorder(){
+    redButtonEl.classList.add("red-ani");
+    getItemFour.play();
+}
+
+ function removeGreenBorder(){
+    greenButtonEl.classList.remove("green-ani");
+}
+
+function removeYellowBorder(){
+    yellowButtonEl.classList.remove("yellow-ani");
+}
+
+function removeBlueBorder(){
+    blueButtonEl.classList.remove("blue-ani");
+}
+
+function removeRedBorder(){
+    redButtonEl.classList.remove("red-ani");
+}
+
+
+//initialization function
+
+function init(){
+    score = 0;
+    setTimeout(addEventListeners, 100);
+    playerMessageEl.textContent = "";
+    scoreEl.textContent = "0";
+}
+
